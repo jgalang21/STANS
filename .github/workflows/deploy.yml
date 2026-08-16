@@ -30,7 +30,9 @@ jobs:
   deployment:
     name: Deployment
     runs-on: ubuntu-latest
-    run: echo 'Success!'
+    steps:
+      - run: echo "Success!"
+
   # build-scan-push:
   #   name: Build, Scan & Push
   #   runs-on: [self-hosted, homelab]
