@@ -28,6 +28,8 @@ jobs:
           NODE_OPTIONS: "--max-old-space-size=2048"
 
   deployment:
+    name: Deployment
+    runs-on: ubuntu-latest
     run: echo 'Success!'
   # build-scan-push:
   #   name: Build, Scan & Push
