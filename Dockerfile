@@ -8,6 +8,9 @@ RUN npm ci --frozen-lockfile
 COPY . .
 RUN npm run build
 
+
+
+
 # ── STAGE 2 : SERVE ─────────────────────────────────────────
 FROM nginx:1.27-alpine
 COPY nginx/default.conf /etc/nginx/conf.d/default.conf
@@ -21,7 +24,7 @@ RUN chown -R nginx:nginx /usr/share/nginx/html \
     && touch /var/run/nginx.pid \
     && chown -R nginx:nginx /var/run/nginx.pid
 
-EXPOSE 80 443
+EXPOSE 80 
 
 HEALTHCHECK --interval=30s --timeout=3s --start-period=5s --retries=3 \
     CMD wget --no-verbose --tries=1 --spider --no-check-certificate https://localhost:443/ || exit 1
