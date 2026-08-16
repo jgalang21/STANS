@@ -22,6 +22,7 @@ jobs:
           cache: 'npm'
       - run: npm ci --frozen-lockfile
       - run: npm audit --audit-level=high
+      - run: npm audit fix
       - run: npm run build
         env:
           NODE_OPTIONS: "--max-old-space-size=2048"
